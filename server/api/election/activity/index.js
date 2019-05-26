@@ -19,6 +19,15 @@ const API = {
       throw new Error('选举的已开始，无法修改候选人')
     }
     await ElectionActivitys.updateOne({ _id: activityId }, { $pull: { candidateList: { $elemMatch: { realName } } } })
+  },
+  async query(activityId) {
+    let result = await ElectionVotes.aggregate([
+      { $match: { 'activity._id': activityId } },
+      { $unwind: "$candidateList" },
+      { '$group': { _id: { realName: "$candidateList.realName" }, count: { $sum: 1 } } },
+      { '$sort': { count: -1 } }
+    ])
+    return result.map(m => { return { realName: m._id.realName, count: m.count } })
   }
 }
 

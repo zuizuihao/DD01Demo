@@ -44,6 +44,15 @@ const API = {
     await ElectionAPI.removeCandidate(activityId, realName)
 
     ctx.body = { success: true, errCode: 0, errMsg: '删除选举人动成功' }
+  },
+  async query(ctx) {
+    let { activityId } = ctx.request.body;
+    if (!activityId) {
+      throw new Error('选举活动不能为空')
+    }
+
+    let list = await ElectionAPI.query(activityId)
+    ctx.body = { success: true, errCode: 0, errMsg: '查询选举结果成功', data: { list } }
   }
 }
 

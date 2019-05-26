@@ -30,7 +30,7 @@ const API = {
       throw new Error(`选中候选人 ${candidateListSelected.length}, 每个有效邮箱的投票个数不能少于2个`)
     }
 
-    let voteCount = await ElectionVotes.countDocuments({ 'user.id': user.id, 'activity._id': activity._id })
+    let voteCount = await ElectionVotes.countDocuments({ 'user._id': user._id, 'activity._id': activity._id })
     if (voteCount > 0) {
       throw new Error('每个有效邮箱只能投票一次')
     }

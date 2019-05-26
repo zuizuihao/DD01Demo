@@ -11,6 +11,7 @@ router.post('/api/v1/user/vote', User.vote)
 router.post('/api/v1/election/activity/add', ElectionActivity.add)
 router.post('/api/v1/election/activity/addCandidate', ElectionActivity.addCandidate)
 router.post('/api/v1/election/activity/removeCandidate', ElectionActivity.removeCandidate)
+router.post('/api/v1/election/activity/query', ElectionActivity.query)
 
 
 export default router
