@@ -18,6 +18,19 @@ const API = {
     const { code } = ctx.request.query
     await UserAPI.validateEmail(code)
     ctx.body = '验证邮箱成功'
+  },
+  async vote(ctx) {
+    const { authorization } = ctx.headers
+    const { activityId, candidateList } = ctx.request.body
+    if(!activityId) {
+      throw new Error('选举活动不能为空')
+    }
+    if(!candidateList) {
+      throw new Error('选中候选人列表不能为空')
+    }
+    let user = await UserAPI.findByToken(authorization.split(' ')[1])
+    await UserAPI.vote(user, activityId, candidateList)
+    ctx.body = { success: true, errCode: 0, errMsg: '投票成功' }
   }
 }
 

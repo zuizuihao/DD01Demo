@@ -7,6 +7,11 @@ const UserSchema = new Schema({
     alias: '用户名',
     required: false
   },
+  token: {
+    type: String,
+    alias: '用户token',
+    required: false
+  },
   email: {
     type: String,
     alias: '邮箱地址',

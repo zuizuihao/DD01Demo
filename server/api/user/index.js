@@ -1,6 +1,7 @@
 import JWTAPI from '../jwt/index'
 import Common from '../common/index'
 import EmailAPI from '../email/index'
+import ElectionVoteAPI from '../election/vote'
 import bcrypt from 'bcryptjs'
 import shortid from 'shortid'
 const saltRounds = 10
@@ -43,6 +44,8 @@ const API = {
     }
     //用户登录，生成token
     let token = JWTAPI.getToken({ email, password })
+    await Users.update({ _id: user._id }, { $set: { token } })
+
     return token
   },
   async validateEmail(code) {
@@ -51,6 +54,15 @@ const API = {
       throw new Error('邮箱验证码不存在')
     }
     await Users.update({ _id: user._id }, { $set: { isEmailValid: true } })
+  },
+  async findByToken(token) {
+    return await Users.findOne({ token }).lean()
+  },
+  async vote( user, activityId, candidateList ) {
+    if(!user.isEmailValid) {
+      throw new Error('邮件未验证，无法进行投票')
+    }
+    await ElectionVoteAPI.vote(user, activityId, candidateList)
   }
 }
 
