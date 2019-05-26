@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import shortid from 'shortid'
 import EmailAPI from '../server/api/email/index'
 
 describe('测试发送验证邮箱', function () {
@@ -22,6 +23,7 @@ describe('测试发送验证邮箱', function () {
   // test cases
 
   it('should save without error', function (done) {
+    let emailValidcode = shortid.generate()
     EmailAPI.send({
       // 发件人
       from: '1165622982@qq.com',
@@ -30,7 +32,7 @@ describe('测试发送验证邮箱', function () {
       // 收件人
       to: 'zuizuihao@hotmail.com',
       // 邮件内容，HTML格式
-      text: '点击激活：xxx' //接收激活请求的链接
+      html: `<a href="http://localhost:9000/api/v1/user/validateEmail?code=${emailValidcode}">点击激活</a>`
     }).then(() => {
       done()
     }).catch(e => {

@@ -21,6 +21,11 @@ const UserSchema = new Schema({
     type: Boolean,
     alias: '邮箱是否有效',
     required: false
+  },
+  emailValidcode: {
+    type: String,
+    alias: '邮箱激活码',
+    required: false
   }
 },
   {

@@ -19,7 +19,8 @@
     "mongoose": "^5.4.3",
     "nodemailer": "^6.2.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

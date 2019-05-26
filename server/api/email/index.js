@@ -13,7 +13,7 @@ const API = {
     };
     // 创建一个SMTP客户端对象
     transporter = nodemailer.createTransport(config);
-    console.log('初始化邮件成功')
+    console.log('初始化邮件服务成功')
   },
   async send(emailObj) {
     await transporter.sendMail(emailObj)

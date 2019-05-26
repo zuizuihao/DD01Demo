@@ -9,6 +9,7 @@ const API = {
       path: [
         /^\/api\/v1\/user\/login/,
         /^\/api\/v1\/user\/register/,
+        /^\/api\/v1\/user\/validateEmail/,
         /^((?!\/api).)*$/   // 设置除了私有接口外的其它资源，可以不需要认证访问
       ]
     })
