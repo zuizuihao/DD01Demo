@@ -2,6 +2,7 @@ import 'babel-polyfill'
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
 import JWT from './api/jwt/index'
+import email from './api/email/index'
 import APIRoutes from './api/routes.js'
 import DB from './db'
 
@@ -46,6 +47,8 @@ app.use(JWT.acl());
 
 /** 路由 */
 app.use(APIRoutes.routes())
+
+email.init()
 
 /* 监听服务器端口 */
 app.listen(website.port, () => {
