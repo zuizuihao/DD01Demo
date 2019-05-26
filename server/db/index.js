@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
-import { OAuthAccessTokenSchema, OAuthAuthorizationCodeSchema, OAuthClientSchema, OAuthRefreshTokenSchema, OAuthUserSchema } from './schema'
-global.OAuthAccessToken = mongoose.model('OAuthAccessToken', OAuthAccessTokenSchema, 'OAuthAccessToken')
-global.OAuthAuthorizationCode = mongoose.model('OAuthAuthorizationCode', OAuthAuthorizationCodeSchema, 'OAuthAuthorizationCode')
-global.OAuthClient = mongoose.model('OAuthClient', OAuthClientSchema, 'OAuthClient')
-global.OAuthRefreshToken = mongoose.model('OAuthRefreshToken', OAuthRefreshTokenSchema, 'OAuthRefreshToken')
-global.OAuthUser = mongoose.model('OAuthUser', OAuthUserSchema, 'OAuthUser')
+import { UserSchema } from './schema'
+global.Users = mongoose.model('Users', UserSchema, 'Users')
 
 export default {
   init(mongoDBUrl) {

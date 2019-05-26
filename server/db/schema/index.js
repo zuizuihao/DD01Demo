@@ -1,7 +1,3 @@
-import OAuthAccessTokenSchema from './OAuthAccessToken'
-import OAuthAuthorizationCodeSchema from './OAuthAuthorizationCode'
-import OAuthClientSchema from './OAuthClient'
-import OAuthRefreshTokenSchema from './OAuthRefreshToken'
-import OAuthUserSchema from './OAuthUser'
+import UserSchema from './Users'
 
-export { OAuthAccessTokenSchema, OAuthAuthorizationCodeSchema, OAuthClientSchema, OAuthRefreshTokenSchema, OAuthUserSchema }
+export { UserSchema }

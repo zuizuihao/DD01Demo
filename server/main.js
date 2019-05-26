@@ -1,6 +1,6 @@
 import 'babel-polyfill'
 import Koa from 'koa'
-import koaBody from 'koa-body'
+import bodyParser from 'koa-bodyparser'
 import JWT from './api/jwt/index'
 import APIRoutes from './api/routes.js'
 import DB from './db'
@@ -21,14 +21,13 @@ const website = {
 }
 
 /* 查询字符串解析到`ctx.request.query` */
-app.use(koaBody());
+app.use(bodyParser())
 app.use(async (ctx, next) => {
   try {
     const start = Date.now()
     await next()
     console.log(`${ctx.request.method} ${ctx.request.originalUrl} ${Date.now() - start}ms`)
   } catch (err) {
-    console.log(err)
     if (err.status === 401) {
       ctx.status = 401;
       ctx.body = {
@@ -36,8 +35,8 @@ app.use(async (ctx, next) => {
         msg: err.originalError ? err.originalError.message : err.message
       }
     } else {
-      let err_msg = typeof err == 'object' ? err.message : err
-      ctx.body = { success: false, err_code: err.code, err_msg }
+      let errMsg = typeof err == 'object' ? err.message : err
+      ctx.body = { success: false, errCode: err.code, errMsg }
     }
   }
 })
