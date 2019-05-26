@@ -1,3 +1,4 @@
+import JWTAPI from '../jwt/index'
 import Common from '../common/index'
 import EmailAPI from '../email/index'
 import bcrypt from 'bcryptjs'

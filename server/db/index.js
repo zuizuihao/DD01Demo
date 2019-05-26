@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-import { UserSchema } from './schema'
+import { UserSchema, ElectionActivitySchema } from './schema'
 global.Users = mongoose.model('Users', UserSchema, 'Users')
+global.ElectionActivitys = mongoose.model('ElectionActivitys', ElectionActivitySchema, 'ElectionActivitys')
 
 export default {
   init(mongoDBUrl) {
