@@ -1,4 +1,4 @@
 import UserSchema from './Users'
-import ElectionActivitySchema from './ElectionActivitys'
+import ElectionActivitySchema from './election/activity'
 
 export { UserSchema, ElectionActivitySchema }

@@ -35,7 +35,6 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', function (next) {
   this._id = mongoose.Types.ObjectId().toString();
-  console.log(this._id)
   next()
 })
 

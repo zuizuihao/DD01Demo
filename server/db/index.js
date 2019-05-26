@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import { UserSchema, ElectionActivitySchema } from './schema'
+import { UserSchema, ElectionActivitySchema, ElectionCandidateSchema } from './schema'
 global.Users = mongoose.model('Users', UserSchema, 'Users')
 global.ElectionActivitys = mongoose.model('ElectionActivitys', ElectionActivitySchema, 'ElectionActivitys')
 

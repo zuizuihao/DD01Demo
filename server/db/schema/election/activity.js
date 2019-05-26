@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
+import CandidateSchema from '../common/election_candidate'
 
 const ElectionActivitySchema = new Schema({
   _id: String,
@@ -17,6 +18,11 @@ const ElectionActivitySchema = new Schema({
     alias: '结束时间',
     required: false
   },
+  candidateList: {
+    type: [CandidateSchema],
+    alias: '候选人列表',
+    required: false
+  },
 },
   {
     versionKey: false,
@@ -25,7 +31,6 @@ const ElectionActivitySchema = new Schema({
 
 ElectionActivitySchema.pre('save', function (next) {
   this._id = mongoose.Types.ObjectId().toString();
-  console.log(this._id)
   next()
 })
 
