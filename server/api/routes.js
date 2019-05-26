@@ -10,6 +10,6 @@ router.get('/api/v1/user/validateEmail', User.validateEmail)
 
 router.post('/api/v1/election/activity/add', ElectionActivity.add)
 router.post('/api/v1/election/activity/addCandidate', ElectionActivity.addCandidate)
-router.post('/api/v1/election/activity/addCandidate', ElectionActivity.addCandidate)
+router.post('/api/v1/election/activity/removeCandidate', ElectionActivity.removeCandidate)
 
 export default router

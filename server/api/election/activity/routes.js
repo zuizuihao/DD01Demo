@@ -43,7 +43,7 @@ const API = {
 
     await ElectionAPI.removeCandidate(activityId, realName)
 
-    ctx.body = { success: true, errCode: 0, errMsg: '添加选举人动成功' }
+    ctx.body = { success: true, errCode: 0, errMsg: '删除选举人动成功' }
   }
 }
 

@@ -6,7 +6,7 @@ const API = {
   async addCandidate(activityId, realName) {
     await ElectionActivitys.updateOne({ _id: activityId }, { $addToSet: { 'candidateList': { realName } } })
   },
-  async deleteCandidate(activityId, realName) {
+  async removeCandidate(activityId, realName) {
     await ElectionActivitys.updateOne({ _id: activityId }, { $pull: { candidateList: { $elemMatch: { realName } } } })
   }
 }
