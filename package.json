@@ -15,7 +15,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.4.3",
+    "mongoose": "^5.7.5",
     "nodemailer": "^6.2.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
